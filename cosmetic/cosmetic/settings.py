@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'makeup.apps.MakeupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -132,3 +133,5 @@ STATICFILES_DIRS = [
 #Media Folder
 MEDIA_ROOT = os.path.join( BASE_DIR, 'media' )
 MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
