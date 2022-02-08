@@ -48,23 +48,33 @@
                     <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">About</a></li>
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#">Brand</a></li>
-                    <li class="dropdown"><a href="#Products"><span>Products</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">All Products</a></li>
-                        </ul>
-                    </li>
-                    {% if not user.is_authenticated  %}
+                    <li><a class="nav-link scrollto" href="#clients">Brand</a></li>
+                    <li><a class="nav-link scrollto" href="#Products">Products</a></li>
+
+                    {% if not user.is_authenticated %}
                     <li><a class="nav-link scrollto" href="{% url 'login' %}">Log in</a></li>
                     {% endif %}
+
                     {% if user.is_authenticated and user.is_seller == True %}
-                    <li><a class="nav-link scrollto" href="{% url 'login' %}">Seller: {{user.username }}</a></li>
-                    <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log out</a></li>
+                    <li class="dropdown"><a href="#"><span>Seller: {{user.username }}</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{% url 'add Product' %}">Add Products</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a href="{% url 'logout' %}">Log out</a></li>
+                        </ul>
+                    </li>
                     {% endif %}
+
                     {% if user.is_authenticated and user.is_seller == False %}
-                    <li><a class="nav-link scrollto" href="{% url 'login' %}">Seller: {{user.username }}</a></li>
-                    <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log out</a></li>
+                    <li class="dropdown"><a href="#"><span>Buyer: {{user.username }}</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{% url 'profile' %}">Buy</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a href="{% url 'logout' %}">Log out</a></li>
+                        </ul>
+                    </li>
                     {% endif %}
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>

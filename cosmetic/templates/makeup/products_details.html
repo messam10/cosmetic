@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Index{% endblock %}
+{% block body %}
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Product Details</h2>
+            <ol>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Product Details</li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4">
+                <div class="swiper-wrapper align-items-center">
+
+                    <img src="{{ Pro.photo.url }}" alt="{{ Pro.name }}" height="500" width="500">
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="portfolio-info">
+                    <h3>Product information</h3>
+                    <ul>
+                        <li><strong>Name</strong>: {{Pro.name}} </li>
+                        <li><strong>Expiry Date</strong>: {{Pro.expir_date}} </li>
+                        <li><strong>Brand</strong>: {{Pro.brand}}</li>
+                        <li><strong>price</strong>: ${{Pro.price}}</li>
+                        <li><strong>descreption</strong>: {{Pro.descreption}} </li>
+                        <li><strong>Buy Now</strong>: <a href="#" title="Buy">buy</a> </li>
+                    </ul>
+
+                </div>
+                <div class="portfolio-description">
+                    <h2>This is an example of Product detail</h2>
+                    <p>
+                        Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia
+                        quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim.
+                        Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla
+                        at esse enim cum deserunt eius.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->
+
+</main><!-- End #main -->
+{% endblock body %}
